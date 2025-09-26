@@ -1,0 +1,39 @@
+{
+    "doublev_blog_post": {
+        "column": {
+            "post_id": true,
+            "title": true,
+            "content": true,
+            "author": true,
+            "is_active": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "DOUBLEV_BLOG_POST_TITLE": true,
+            "DOUBLEV_BLOG_POST_IS_ACTIVE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "doublev_blog_comment": {
+        "column": {
+            "comment_id": true,
+            "post_id": true,
+            "author": true,
+            "content": true,
+            "email": true,
+            "is_active": true,
+            "created_at": true
+        },
+        "index": {
+            "DOUBLEV_BLOG_COMMENT_POST_ID": true,
+            "DOUBLEV_BLOG_COMMENT_IS_ACTIVE": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "DOUBLEV_BLOG_COMMENT_POST_ID_DOUBLEV_BLOG_POST_POST_ID": true
+        }
+    }
+}

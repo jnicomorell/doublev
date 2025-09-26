@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2025 - Nicolas Morell (https://www.linkedin.com/in/jomorell/)
+ * @author      Nicolas Morell <nicolasmorelldev@gmail.com>
+ * @category    Fullstack Developer
+ * @package     DoubleV_Blog
+ * @date        26/09/2025
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/doublev-blog/posts" method="GET">
+        <service class="DoubleV\Blog\Api\PostRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/doublev-blog/posts/:postId" method="GET">
+        <service class="DoubleV\Blog\Api\PostRepositoryInterface" method="getByIdFlexible"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/doublev-blog/posts/:postId/comments" method="GET">
+        <service class="DoubleV\Blog\Api\CommentRepositoryInterface" method="getByPostIdFlexible"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2025 - Nicolas Morell (https://www.linkedin.com/in/jomorell/)
+ * @author      Nicolas Morell <nicolasmorelldev@gmail.com>
+ * @category    Fullstack Developer
+ * @package     DoubleV_Blog
+ * @date        26/09/2025
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="DoubleV_Blog::blog" title="Blog" translate="title" sortOrder="100">
+                    <resource id="DoubleV_Blog::posts" title="Posts" translate="title" sortOrder="10"/>
+                    <resource id="DoubleV_Blog::comments" title="Comments" translate="title" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
