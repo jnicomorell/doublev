@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2025 - Nicolas Morell (https://www.linkedin.com/in/jomorell/)
+ * @author      Nicolas Morell <nicolasmorelldev@gmail.com>
+ * @category    Fullstack Developer
+ * @package     DoubleV_Blog
+ * @date        26/09/2025
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Service Contract Preferences -->
+    <preference for="DoubleV\Blog\Api\Data\PostInterface" type="DoubleV\Blog\Model\Post"/>
+    <preference for="DoubleV\Blog\Api\Data\CommentInterface" type="DoubleV\Blog\Model\Comment"/>
+    <preference for="DoubleV\Blog\Api\PostRepositoryInterface" type="DoubleV\Blog\Model\PostRepository"/>
+    <preference for="DoubleV\Blog\Api\CommentRepositoryInterface" type="DoubleV\Blog\Model\CommentRepository"/>
+
+    <!-- UI Components Data Providers -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="doublev_blog_post_listing_data_source" xsi:type="string">DoubleV\Blog\Model\ResourceModel\Post\Grid\Collection</item>
+                <item name="doublev_blog_comment_listing_data_source" xsi:type="string">DoubleV\Blog\Model\ResourceModel\Comment\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Virtual Grid Collections -->
+    <virtualType name="DoubleV\Blog\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">doublev_blog_post</argument>
+            <argument name="resourceModel" xsi:type="string">DoubleV\Blog\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="DoubleV\Blog\Model\ResourceModel\Comment\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">doublev_blog_comment</argument>
+            <argument name="resourceModel" xsi:type="string">DoubleV\Blog\Model\ResourceModel\Comment</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Data Providers específicos -->
+    <type name="DoubleV\Blog\Ui\DataProvider\PostDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object">DoubleV\Blog\Model\ResourceModel\Post\Collection</argument>
+        </arguments>
+    </type>
+
+    <type name="DoubleV\Blog\Ui\DataProvider\CommentDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object">DoubleV\Blog\Model\ResourceModel\Comment\Collection</argument>
+        </arguments>
+    </type>
+</config>

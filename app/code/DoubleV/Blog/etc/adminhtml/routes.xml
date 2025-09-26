@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2025 - Nicolas Morell (https://www.linkedin.com/in/jomorell/)
+ * @author      Nicolas Morell <nicolasmorelldev@gmail.com>
+ * @category    Fullstack Developer
+ * @package     DoubleV_Blog
+ * @date        26/09/2025
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="doublev_blog" frontName="doublev_blog">
+            <module name="DoubleV_Blog"/>
+        </route>
+    </router>
+</config>
